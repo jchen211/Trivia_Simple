@@ -17,3 +17,22 @@ body {
     height: 600px;
     margin-top: 100px;
 }
+
+.row {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+.questions {
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 6px;
+}
+
+label {
+    margin-right: 25px;
+}
