@@ -12,6 +12,8 @@ html {
 body {
     max-width: 960px;
     margin: 0 auto;
+    color: #323232;
+
 }
 
 
@@ -47,6 +49,7 @@ p {
     font-size: 20px;
     letter-spacing: 6px;
     margin-top: 30px;
+
 }
 
 label {
