@@ -67,14 +67,65 @@ function submitQuest () {
 function showResults() {
   clearInterval(intervalId);
   
-  if ($('input:checked').val() === 'correct') {
+  if ($('input[name=choice1]:checked').val() === 'correct') {  
     correct++;
+  } else {
+    wrong++;
   }
 
-  else {
+  if ($('input[name=choice2]:checked').val() === 'correct') {  
+    correct++;
+  } else {
     wrong++;
   }
   
+  if ($('input[name=choice3]:checked').val() === 'correct') {  
+    correct++;
+  } else {
+    wrong++;
+  }
+  
+  if ($('input[name=choice4]:checked').val() === 'correct') {  
+    correct++;
+  } else {
+    wrong++;
+  }
+
+  if ($('input[name=choice5]:checked').val() === 'correct') {  
+    correct++;
+  } else {
+    wrong++;
+  }
+
+  if ($('input[name=choice6]:checked').val() === 'correct') {  
+    correct++;
+  } else {
+    wrong++;
+  }
+
+  if ($('input[name=choice7]:checked').val() === 'correct') {  
+    correct++;
+  } else {
+    wrong++;
+  }
+
+  if ($('input[name=choice8]:checked').val() === 'correct') {  
+    correct++;
+  } else {
+    wrong++;
+  }
+
+  if ($('input[name=choice9]:checked').val() === 'correct') {  
+    correct++;
+  } else {
+    wrong++;
+  }
+
+  if ($('input[name=choice0]:checked').val() === 'correct') {  
+    correct++;
+  } else {
+    wrong++;
+  }
   $('#results').show();
   $('#right').text(correct + " correct");
   $('#notRight').text(wrong + " wrong");
@@ -87,7 +138,7 @@ function reset() {
 $('#resetQuiz').click(function() {
   $('.questionCont').show();
   $('#submit').show();
-  
+
   decrement();
   $('#timer').text("02:00");
   $('#results').hide();
