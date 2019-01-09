@@ -22,6 +22,7 @@ function startGame() {
 }
 
 intervalId = setInterval(decrement, 1000);
+
 function decrement() {  
   var converted = timeConverter(time);
   time--;
@@ -56,7 +57,7 @@ function timeConverter(t) {
 }
 
 function submitQuest () {
-  $('#done').click(function(){
+  $('#done').click(function() {
     $('.questionCont').hide();
     $('#submit').hide();
     showResults();
@@ -66,20 +67,38 @@ function submitQuest () {
 function showResults() {
   clearInterval(intervalId);
   
-  if ($('input:checked').val(correct)) {
+  if ($('input:checked').val() === 'correct') {
     correct++;
   }
 
-  else if ($('input:checked').val(incorrect)) {
+  else {
     wrong++;
   }
   
   $('#results').show();
   $('#right').text(correct + " correct");
   $('#notRight').text(wrong + " wrong");
+  $('#blankAns').text(noAns + " no answer");
 
+
+}
+
+function reset() {
+$('#resetQuiz').click(function() {
+  $('.questionCont').show();
+  $('#submit').show();
+  
+  decrement();
+  $('#timer').text("02:00");
+  $('#results').hide();
+  wrong = 0;
+  correct = 0;
+  noAns = 0;
+
+});
 }
 
 startGame();
 submitQuest();
+reset();
 });
