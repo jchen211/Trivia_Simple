@@ -29,24 +29,29 @@ function timeConverter(t) {
 $('.questionCont').hide();
 $('#submit').hide();
 
-
 function startGame() {
   $('#begin').click(function(){
     $('.questionCont').show();
     $('#submit').show();
     $('.start').hide();
+  
+  intervalId = setInterval(count, 1000);
+  $('#timer').text("02:00")
 
   });
 }
 
-setTimeout (twoMin, 1000 * 120);
-
-function twoMin() {
-    timeConverter();
+function count() {
+   var converted = timeConverter(time);
     time--;
-    $('#timer').text("02:00");
+    $('#timer').text(converted);
 }
 
-twoMin();
+setTimeout (twoMin, 1000 * 120);
+
+function twoMin(){
+  // go to results
+}
+
 startGame();
 });
