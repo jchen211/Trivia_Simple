@@ -11,6 +11,7 @@ $('.questionCont').hide();
 $('#submit').hide();
 $('#results').hide();
 
+
 function startGame() {
   $('#begin').click(function(){
     $('.questionCont').show();
@@ -171,5 +172,4 @@ $('#resetQuiz').click(function() {
 
 startGame();
 submitQuest();
-reset();
 });
