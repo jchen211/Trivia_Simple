@@ -26,11 +26,16 @@ function timeConverter(t) {
     return minutes + ":" + seconds;
 }
 
-$('.row').hide();
+$('.questionCont').hide();
+$('#submit').hide();
+
 
 function startGame() {
   $('#begin').click(function(){
-    $('.row').show();
+    $('.questionCont').show();
+    $('#submit').show();
+    $('.start').hide();
+
   });
 }
 
