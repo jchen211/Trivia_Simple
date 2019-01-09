@@ -11,34 +11,31 @@ $('.questionCont').hide();
 $('#submit').hide();
 $('#results').hide();
 
-setTimeout (twoMin, 1000 * 120);
-
-function twoMin(){
-  if (time === 0) {
-    $('#results').show();
-    clearInterval(intervalId);
-  }
-}
-
 function startGame() {
   $('#begin').click(function(){
     $('.questionCont').show();
     $('#submit').show();
     $('.start').hide();
-  
-  intervalId = setInterval(count, 1000);
-  $('#timer').text("2:00")
-
-  twoMin();
-
   });
+  decrement();
+  $('#timer').text("02:00");
 }
 
-function count() {
-   var converted = timeConverter(time);
-    time--;
-    $('#timer').text(converted);
+intervalId = setInterval(decrement, 1000);
+function decrement() {  
+  var converted = timeConverter(time);
+  time--;
+  $('#timer').text(converted);
+
+  if (time === 0) {
+    clearInterval(intervalId);
+    $('.questionCont').hide();
+    $('#submit').hide();
+    showResults();
+    $('#results').show();
+  }
 }
+
 function timeConverter(t) {
 
   var minutes = Math.floor(t / 60);
@@ -58,24 +55,29 @@ function timeConverter(t) {
   return minutes + ":" + seconds;
 }
 
-
-
 function submitQuest () {
   $('#done').click(function(){
     $('.questionCont').hide();
     $('#submit').hide();
     showResults();
-    clearInterval(intervalId);
   });
 }
 
 function showResults() {
-  if ($('#questionCont').val() === 'correct') {
+  clearInterval(intervalId);
+  
+  if ($('input:checked').val(correct)) {
     correct++;
-  } else  {
+  }
+
+  else if ($('input:checked').val(incorrect)) {
     wrong++;
   }
+  
   $('#results').show();
+  $('#right').text(correct + " correct");
+  $('#notRight').text(wrong + " wrong");
+
 }
 
 startGame();
