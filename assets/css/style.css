@@ -29,8 +29,7 @@ header {
     position: absolute;
 }
 
-.start,
-.end {
+.start {
     border: 10px solid #323232;
     height: 200px;
     margin-top: 100px;
@@ -71,7 +70,8 @@ label {
     margin: 50px 0;
 }
 
-.btn {
+.btn,
+.btn2 {
     width: 150px;
     height: 50px;
     border-radius: 5px;
@@ -81,7 +81,20 @@ label {
     margin-top: 75px;
 }
 
+.btn2 {
+    margin-top: 10px;
+}
+
+.end {
+    border: 10px solid #323232;
+    height: 400px;
+    margin-top: 100px;
+    text-align: center;
+    
+}
+
 .endResults {
     text-align: center;
-    margin-top: 50px;
+    margin: 70px 0 40px;
+    font-size: 20px;
 }

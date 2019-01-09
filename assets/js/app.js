@@ -69,68 +69,88 @@ function showResults() {
   
   if ($('input[name=choice1]:checked').val() === 'correct') {  
     correct++;
-  } else {
+  } else if ($('input[name=choice1]:checked').val() === 'incorrect') {
     wrong++;
+  } else {
+    noAns++;
   }
 
   if ($('input[name=choice2]:checked').val() === 'correct') {  
     correct++;
-  } else {
+  } else if ($('input[name=choice2]:checked').val() === 'incorrect') {
     wrong++;
+  } else {
+    noAns++;
   }
-  
+
   if ($('input[name=choice3]:checked').val() === 'correct') {  
     correct++;
-  } else {
+  } else if ($('input[name=choice3]:checked').val() === 'incorrect') {
     wrong++;
+  } else {
+    noAns++;
   }
-  
+
   if ($('input[name=choice4]:checked').val() === 'correct') {  
     correct++;
-  } else {
+  } else if ($('input[name=choice4]:checked').val() === 'incorrect') {
     wrong++;
+  } else {
+    noAns++;
   }
 
   if ($('input[name=choice5]:checked').val() === 'correct') {  
     correct++;
-  } else {
+  } else if ($('input[name=choice5]:checked').val() === 'incorrect') {
     wrong++;
+  } else {
+    noAns++;
   }
 
   if ($('input[name=choice6]:checked').val() === 'correct') {  
     correct++;
-  } else {
+  } else if ($('input[name=choice6]:checked').val() === 'incorrect') {
     wrong++;
+  } else {
+    noAns++;
   }
 
   if ($('input[name=choice7]:checked').val() === 'correct') {  
     correct++;
-  } else {
+  } else if ($('input[name=choice7]:checked').val() === 'incorrect') {
     wrong++;
+  } else {
+    noAns++;
   }
 
   if ($('input[name=choice8]:checked').val() === 'correct') {  
     correct++;
-  } else {
+  } else if ($('input[name=choice8]:checked').val() === 'incorrect') {
     wrong++;
+  } else {
+    noAns++;
   }
 
   if ($('input[name=choice9]:checked').val() === 'correct') {  
     correct++;
-  } else {
+  } else if ($('input[name=choice9]:checked').val() === 'incorrect') {
     wrong++;
+  } else {
+    noAns++;
   }
 
   if ($('input[name=choice0]:checked').val() === 'correct') {  
     correct++;
-  } else {
+  } else if ($('input[name=choice0]:checked').val() === 'incorrect') {
     wrong++;
+  } else {
+    noAns++;
   }
+
   $('#results').show();
   $('#right').text(correct + " correct");
   $('#notRight').text(wrong + " wrong");
   $('#blankAns').text(noAns + " no answer");
-
 
 }
 
