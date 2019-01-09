@@ -7,27 +7,18 @@ var intervalId;
 
 time = 120;
 
-function timeConverter(t) {
-
-    var minutes = Math.floor(t / 60);
-    var seconds = t - (minutes * 60);
-  
-    if (seconds < 10) {
-      seconds = "0" + seconds;
-    }
-  
-    if (minutes === 0) {
-      minutes = "00";
-    }
-    else if (minutes < 10) {
-      minutes = "0" + minutes;
-    }
-  
-    return minutes + ":" + seconds;
-}
-
 $('.questionCont').hide();
 $('#submit').hide();
+$('#results').hide();
+
+setTimeout (twoMin, 1000 * 120);
+
+function twoMin(){
+  if (time === 0) {
+    $('#results').show();
+    clearInterval(intervalId);
+  }
+}
 
 function startGame() {
   $('#begin').click(function(){
@@ -36,7 +27,9 @@ function startGame() {
     $('.start').hide();
   
   intervalId = setInterval(count, 1000);
-  $('#timer').text("02:00")
+  $('#timer').text("2:00")
+
+  twoMin();
 
   });
 }
@@ -46,12 +39,45 @@ function count() {
     time--;
     $('#timer').text(converted);
 }
+function timeConverter(t) {
 
-setTimeout (twoMin, 1000 * 120);
+  var minutes = Math.floor(t / 60);
+  var seconds = t - (minutes * 60);
 
-function twoMin(){
-  // go to results
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
+
+  if (minutes === 0) {
+    minutes = "00";
+  }
+  else if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+
+  return minutes + ":" + seconds;
+}
+
+
+
+function submitQuest () {
+  $('#done').click(function(){
+    $('.questionCont').hide();
+    $('#submit').hide();
+    showResults();
+    clearInterval(intervalId);
+  });
+}
+
+function showResults() {
+  if ($('#questionCont').val() === 'correct') {
+    correct++;
+  } else  {
+    wrong++;
+  }
+  $('#results').show();
 }
 
 startGame();
+submitQuest();
 });
