@@ -4,25 +4,23 @@ var correct = 0;
 var wrong = 0;
 var noAns = 0;
 var intervalId; 
-
 time = 120;
 
 $('.questionCont').hide();
 $('#submit').hide();
 $('#results').hide();
 
-
+$('#begin').on('click', startGame);
 function startGame() {
-  $('#begin').click(function(){
     $('.questionCont').show();
     $('#submit').show();
     $('.start').hide();
-  });
+
+  intervalId = setInterval(decrement, 1000);
+
   decrement();
   $('#timer').text("02:00");
 }
-
-intervalId = setInterval(decrement, 1000);
 
 function decrement() {  
   var converted = timeConverter(time);
@@ -57,12 +55,12 @@ function timeConverter(t) {
   return minutes + ":" + seconds;
 }
 
+$('#done').on('click', submitQuest); 
+
 function submitQuest () {
-  $('#done').click(function() {
     $('.questionCont').hide();
     $('#submit').hide();
     showResults();
-  });
 }
 
 function showResults() {
@@ -155,21 +153,15 @@ function showResults() {
 
 }
 
-function reset() {
-$('#resetQuiz').click(function() {
-  $('.questionCont').show();
-  $('#submit').show();
+$('#resetQuiz').on('click', reset);
 
-  decrement();
-  $('#timer').text("02:00");
+function reset() {
+  startGame();
   $('#results').hide();
   wrong = 0;
   correct = 0;
   noAns = 0;
-
-});
+  time = 120;
 }
 
-startGame();
-submitQuest();
 });
